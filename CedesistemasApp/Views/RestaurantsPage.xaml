@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource gris_color_claro}"
+             x:Class="CedesistemasApp.Views.RestaurantsPage">
+    <Grid>
+        <ListView x:Name="grd_restaurants"
+                  IsRefreshing="{Binding IsRefreshingRestaurants}"
+                  ItemSelected="grd_restaurants_ItemSelected"
+                  ItemsSource="{Binding Restaurantes}"
+                  HasUnevenRows="True"
+                  CachingStrategy="RecycleElement"
+                  SeparatorVisibility="None"
+                  BackgroundColor="{StaticResource gris_color_claro}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid BackgroundColor="{StaticResource gris_color_claro}">
+                            <Frame Margin="7"
+                                   Padding="0"
+                                   HasShadow="True"
+                                   CornerRadius="8">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Imagen}" HeightRequest="100" WidthRequest="130" Aspect="AspectFill"/>
+                                    
+                                    <StackLayout Padding="8">
+                                        <Label Text="{Binding Nombre}" FontSize="Medium"/>
+                                        <Label Text="{Binding Direccion}" FontSize="Small" TextColor="Gray" LineBreakMode="TailTruncation"/>
+                                        <Label Text="{Binding Telefono}" FontSize="Small"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>    
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

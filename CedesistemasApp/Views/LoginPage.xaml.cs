@@ -16,18 +16,18 @@ namespace CedesistemasApp.Views
 #endif
         }
 
-        void btn_login_Clicked(System.Object sender, System.EventArgs e)
+        async private void btn_login_Clicked(System.Object sender, System.EventArgs e)
         {
             string email = txt_email.Text;
             string password = txt_password.Text;
 
             if(email == "admin@admin.com" && password == "admin")
             {
-
+                App.Current.MainPage = new NavigationPage(new HomePage());
             }
             else
             {
-                DisplayAlert("Error al ingresar", "El usuario y/o contraseña no son correctos", "Aceptar");
+                await DisplayAlert("Error al ingresar", "El usuario y/o contraseña no son correctos", "Aceptar");
             }
         }
     }
