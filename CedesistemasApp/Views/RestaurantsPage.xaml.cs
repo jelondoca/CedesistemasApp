@@ -22,7 +22,6 @@ namespace CedesistemasApp.Views
             grd_restaurants.SelectedItem = null;
             await Navigation.PushAsync(new RestaurantDetalPage(new RestaurantDetalPageViewModel(item)));
         }
+
     }
-
-
 }

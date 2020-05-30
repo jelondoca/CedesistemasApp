@@ -17,5 +17,17 @@ namespace CedesistemasApp.Views
             InitializeComponent();
             BindingContext = restaurantDetalPageViewModel;
         }
+
+        async void btn_Map_Clicked(System.Object sender, System.EventArgs e)
+        {
+            var vm = (RestaurantDetalPageViewModel)BindingContext;
+
+            await Navigation.PushModalAsync(
+                new MapPage(
+                    vm.Restaurant.Nombre,
+                    vm.Restaurant.Direccion,
+                    vm.Restaurant.Latitud,
+                    vm.Restaurant.Longitud));
+        }
     }
 }
